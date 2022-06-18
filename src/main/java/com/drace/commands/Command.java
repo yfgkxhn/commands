@@ -33,7 +33,7 @@ public abstract class Command extends org.bukkit.command.Command {
         CraftServer craftServer = (CraftServer) Bukkit.getServer();
         SimpleCommandMap simpleCommandMap = craftServer.getCommandMap();
 
-        register(simpleCommandMap);
+        simpleCommandMap.register(name, this);
 
     }
 
@@ -50,7 +50,7 @@ public abstract class Command extends org.bukkit.command.Command {
                 Preconditions.checkState(Modifier.isStatic(method.getModifiers()), "method must be static.");
                 Preconditions.checkState(method.getParameterCount() == 2, "method cant have more than 2 parameters.");
                 Preconditions.checkState(
-                        method.getParameterTypes()[0].getSimpleName().equals("Player") &&
+                        method.getParameterTypes()[0].getSimpleName().equals("CommandSender") &&
                         method.getParameterTypes()[1].getSimpleName().contains("ArgumentsContext"),
                         "invalid method declaration.");
 
@@ -71,7 +71,7 @@ public abstract class Command extends org.bukkit.command.Command {
 
         if (arguments.length == 0) {
 
-            execute(commandSender, arguments);
+            execute(commandSender);
 
             return false;
 
@@ -91,6 +91,6 @@ public abstract class Command extends org.bukkit.command.Command {
         return false;
     }
 
-    public abstract void execute(CommandSender sender, String[] arguments);
+    public abstract void execute(CommandSender sender);
 
 }
