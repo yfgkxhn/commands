@@ -18,14 +18,21 @@
             <id>jittpack</id>
             <url>https://jitpack.io</url>
         </repository>
+             
+         <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+         </repository>
+             
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.8.8-R0.1-SNAPSHOT</version>
-        </dependency>
+         <dependency>
+           <groupId>org.spigotmc</groupId>
+           <artifactId>spigot-api</artifactId>
+           <version>1.8.8-R0.1-SNAPSHOT</version>
+           <scope>provided</scope>
+         </dependency>
 
         <dependency>
             <groupId>com.github.azbh111</groupId>
@@ -37,14 +44,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.yungfasty</groupId>
-            <artifactId>CustomInventory</artifactId>
-            <version>1.0.0</version>
-            <scope>system</scope>
-            <systemPath>D:/IdeaProjects - Copia/custom-inventory/target/custominventory.jar</systemPath>
         </dependency>
 
     </dependencies>
